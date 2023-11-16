@@ -47,6 +47,7 @@ public class AuthenticateService {
     var token = tokenService.generateJwt(auth);
 
     return AuthenticateResponse.builder()
+            .name(user.getName())
             .email(user.getEmail())
             .password(passwordEncoder.encode(user.getPassword()))
             .token(token)

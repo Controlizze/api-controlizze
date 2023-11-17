@@ -1,5 +1,6 @@
 package com.finance.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.finance.domain.city.City;
 import com.finance.domain.movement.Movement;
@@ -8,9 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
@@ -34,7 +33,7 @@ public class User implements UserDetails {
 
   private String name;
 
-  @DateTimeFormat(pattern = "dd/MM/yyyy")
+  @JsonFormat(pattern = "dd/MM/yyyy")
   private LocalDate date_birth;
 
   private String cel;

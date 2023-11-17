@@ -1,5 +1,6 @@
 package com.finance.domain.movement;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.finance.domain.category.Category;
 import com.finance.domain.type.Type;
 import com.finance.domain.user.User;
@@ -8,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -25,7 +25,7 @@ public class Movement {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @DateTimeFormat(pattern = "dd/MM/yyyy")
+  @JsonFormat(pattern = "dd/MM/yyyy")
   private LocalDate date;
 
   private String description;

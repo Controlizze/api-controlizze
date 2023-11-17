@@ -15,7 +15,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,10 +47,11 @@ public class MovementService {
     Category category = optionalCategory.get();
     Type type = optionalType.get();
     User user = optionalUser.get();
+    LocalDate date = LocalDate.parse(req.getDate(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
     var newMovement = Movement.builder()
             .id(null)
-            .date(req.getDate())
+            .date(date)
             .description(req.getDescription())
             .category(category)
             .value(req.getValue())
@@ -62,9 +67,10 @@ public class MovementService {
     Optional<Category> optionalCategory = categoryRepo.findById(req.getCategory());
     Optional<Type> optionalType = typeRepo.findById(req.getType());
     Optional<User> optionalUser = userRepo.findByEmail(req.getUser_email());
+    LocalDate date = LocalDate.parse(req.getDate(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
     if (optionalMovement.isEmpty()) {
-      throw  new RuntimeException("Registro não encontrado");
+      throw new RuntimeException("Registro não encontrado");
     }
 
     Movement movement = optionalMovement.get();
@@ -72,7 +78,7 @@ public class MovementService {
     Type type = optionalType.get();
     User user = optionalUser.get();
 
-    movement.setDate(req.getDate());
+    movement.setDate(date);
     movement.setDescription(req.getDescription());
     movement.setCategory(category);
     movement.setValue(req.getValue());
@@ -86,7 +92,7 @@ public class MovementService {
     Optional<Movement> optionalMovement = movementRepo.findById(id);
 
     if (optionalMovement.isEmpty()) {
-      throw  new RuntimeException("Registro não encontrado");
+      throw new RuntimeException("Registro não encontrado");
     }
 
     Movement movement = optionalMovement.get();

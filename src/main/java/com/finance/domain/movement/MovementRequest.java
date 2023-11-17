@@ -14,6 +14,6 @@ public class MovementRequest {
   private Long category;
   private Long value;
   private Long type;
-  private Long user;
+  private String user_email;
 
 }

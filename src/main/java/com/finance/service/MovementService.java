@@ -32,7 +32,7 @@ public class MovementService {
   private final TypeRepo typeRepo;
   private final UserRepo userRepo;
 
-  public Page<MovFilterDTO> filter(MovementFilter movementFilter, Pageable pageable) {
+  public Page<MovFilterDTO> search(MovementFilter movementFilter, Pageable pageable) {
     return movementRepo.filter(movementFilter, pageable);
   }
 

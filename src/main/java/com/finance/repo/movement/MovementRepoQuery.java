@@ -6,6 +6,6 @@ import org.springframework.data.domain.Pageable;
 
 public interface MovementRepoQuery {
 
-  Page<MovFilterDTO> filter(MovementFilter movementFilter, Pageable pageable);
+  public Page<MovFilterDTO> filter(MovementFilter movementFilter, Pageable pageable);
 
 }

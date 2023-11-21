@@ -1,3 +1,4 @@
+
 package com.finance.repo.movement;
 
 import com.finance.domain.movement.Movement;
@@ -42,7 +43,8 @@ public class MovementRepoImpl implements MovementRepoQuery {
     criteria.orderBy(
             builder.asc(root.get("date")),
             builder.asc(root.get("category").get("name")),
-            builder.asc(root.get("type").get("name")));
+            builder.asc(root.get("type").get("name")),
+            builder.asc(root.get("user").get("name")));
 
     TypedQuery<MovFilterDTO> query = manager.createQuery(criteria);
     addRestrictionsOfPagination(query, pageable);

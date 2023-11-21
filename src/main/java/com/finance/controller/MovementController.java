@@ -23,7 +23,7 @@ public class MovementController {
 
   @GetMapping
   public ResponseEntity<Page<MovFilterDTO>> filter(MovementFilter movementFilter, Pageable pageable) {
-    Page<MovFilterDTO> movements = movementService.filter(movementFilter, pageable);
+    Page<MovFilterDTO> movements = movementService.search(movementFilter, pageable);
 
     return ResponseEntity.ok(movements);
   }

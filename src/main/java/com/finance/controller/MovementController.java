@@ -1,6 +1,5 @@
 package com.finance.controller;
 
-import com.finance.domain.city.CityRequest;
 import com.finance.domain.movement.Movement;
 import com.finance.domain.movement.MovementRequest;
 import com.finance.repo.filter.MovementFilter;

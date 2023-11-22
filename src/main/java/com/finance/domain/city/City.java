@@ -27,10 +27,6 @@ public class City {
 
   private String name;
 
-  @ManyToOne
-  @JoinColumn(name = "state_id")
-  private State state;
-
   @JsonIgnore
   @OneToMany(mappedBy = "city")
   private List<User> user_city = new ArrayList<>();

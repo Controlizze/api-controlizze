@@ -1,5 +1,6 @@
 package com.finance.repo.movement;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,6 +15,7 @@ public class MovFilterDTO {
 
   private Long id;
 
+  @JsonFormat(pattern = "dd/MM/yyyy")
   private LocalDate date;
 
   private String description;

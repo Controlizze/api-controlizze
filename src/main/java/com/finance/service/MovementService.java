@@ -43,7 +43,7 @@ public class MovementService {
   public void addMovement(MovementRequest req) {
     Optional<Category> optionalCategory = categoryRepo.findById(req.getCategory());
     Optional<Type> optionalType = typeRepo.findById(req.getType());
-    Optional<User> optionalUser = userRepo.findByEmail(req.getUser_email());
+    Optional<User> optionalUser = userRepo.findById(req.getUser());
     Category category = optionalCategory.get();
     Type type = optionalType.get();
     User user = optionalUser.get();
@@ -66,7 +66,7 @@ public class MovementService {
     Optional<Movement> optionalMovement = movementRepo.findById(id);
     Optional<Category> optionalCategory = categoryRepo.findById(req.getCategory());
     Optional<Type> optionalType = typeRepo.findById(req.getType());
-    Optional<User> optionalUser = userRepo.findByEmail(req.getUser_email());
+    Optional<User> optionalUser = userRepo.findById(req.getUser());
     LocalDate date = LocalDate.parse(req.getDate(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
     if (optionalMovement.isEmpty()) {

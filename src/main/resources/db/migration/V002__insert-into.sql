@@ -19,9 +19,9 @@ insert into states(name, uf) values
 ('Acre', 'AC'),
 ('Alagoas', 'AL'),
 ('Amazonas', 'AM'),
-('Amapá¡', 'AP'),
+('Amapá', 'AP'),
 ('Bahia', 'BA'),
-('Ceará¡', 'CE'),
+('Ceará', 'CE'),
 ('Distrito Federal', 'DF'),
 ('Espírito Santo', 'ES'),
 ('Goiás', 'GO'),
@@ -29,11 +29,11 @@ insert into states(name, uf) values
 ('Minas Gerais', 'MG'),
 ('Mato Grosso do Sul', 'MS'),
 ('Mato Grosso', 'MT'),
-('Pará¡', 'PA'),
+('Pará', 'PA'),
 ('Paraíba', 'PB'),
 ('Pernambuco', 'PE'),
 ('Piauí', 'PI'),
-('Paraná¡', 'PR'),
+('Paraná', 'PR'),
 ('Rio de Janeiro', 'RJ'),
 ('Rio Grande do Norte', 'RN'),
 ('Rondônia', 'RO'),
@@ -44,5 +44,20 @@ insert into states(name, uf) values
 ('São Paulo', 'SP'),
 ('Tocantins', 'TO');
 
-insert into cities(name, state_id) values
-("Lençóis Paulista", 26);
+insert into cities(name) values
+("São Paulo"),
+("Lençóis Paulista"),
+("Guarulhos"),
+("Campinas"),
+("São Bernardo do Campo"),
+("Santo André"),
+("Osasco"),
+("Sorocaba"),
+("Ribeirão Preto"),
+("São José dos Campos"),
+("Santos"),
+("São Caetano do Sul"),
+("Jundiaí"),
+("Mogi das Cruzes"),
+("Piracicaba"),
+("Barueri");

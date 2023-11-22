@@ -9,10 +9,15 @@ import java.time.LocalDate;
 public class MovementRequest {
 
   private String date;
+
   private String description;
+
   private Long category;
+
   private Long value;
+
   private Long type;
-  private String user_email;
+  
+  private Long user;
 
 }

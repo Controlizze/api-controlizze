@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.finance.domain.city.City;
 import com.finance.domain.movement.Movement;
+import com.finance.domain.state.State;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -45,6 +46,10 @@ public class User implements UserDetails {
   @ManyToOne
   @JoinColumn(name = "city_id")
   private City city;
+
+  @ManyToOne
+  @JoinColumn(name = "state_id")
+  private State state;
 
   @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(

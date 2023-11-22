@@ -21,9 +21,7 @@ create table authorities (
 
 create table cities (
     city_id         bigint              auto_increment      primary key,
-    name            varchar(255),
-    state_id        bigint,
-    foreign key (state_id) references states(state_id)
+    name            varchar(255)
 );
 
 create table users (
@@ -34,7 +32,9 @@ create table users (
     email           varchar(255),
     password        varchar(255),
     city_id         bigint,
-    foreign key (city_id) references cities(city_id)
+    state_id        bigint,
+    foreign key (city_id) references cities(city_id),
+    foreign key (state_id) references states(state_id)
 );
 
 create table movements (

@@ -2,6 +2,7 @@ package com.finance.domain.state;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.finance.domain.city.City;
+import com.finance.domain.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,6 +31,6 @@ public class State {
 
   @JsonIgnore
   @OneToMany(mappedBy = "state")
-  private List<City> city_state = new ArrayList<>();
+  private List<User> user_state = new ArrayList<>();
 
 }

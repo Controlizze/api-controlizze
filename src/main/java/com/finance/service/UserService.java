@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -63,6 +64,36 @@ public class UserService implements UserDetailsService {
     user.setState(state);
 
     userRepo.save(user);
+  }
+
+  public User processResetPassword(String email) {
+    System.out.print(email);
+
+    Optional<User> optionalUser = userRepo.findByEmail(email);
+
+    if (optionalUser.isEmpty()) {
+      throw new RuntimeException("Usuário não encontrado com esse email");
+    }
+
+    User user = optionalUser.get();
+
+    System.out.print(user);
+
+    return User.builder()
+            .id(user.getId())
+            .name(user.getName())
+            .email(user.getEmail())
+            .date_birth(user.getDate_birth())
+            .cel(user.getCel())
+            .city(user.getCity())
+            .state(user.getState())
+            .build();
+  }
+
+  public void resetPassword(String email, String password) {
+    var user  = userRepo.findByEmail(email).orElseThrow();
+
+    user.setPassword(passwordEncoder.encode(password));
   }
 
 }
